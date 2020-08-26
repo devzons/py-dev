@@ -13,6 +13,14 @@ pygame.display.set_caption("Net Game")
 # background
 background = pygame.image.load("/Users/don/Projects/python/pygame_dev/background.png")
 
+# call character (sprite)
+character = pygame.image.load("/Users/don/Projects/python/pygame_dev/character.png")
+character_size = character.get_rect().size 
+character_width = character_size[0]
+character_height = character_size[1]
+character_x_pos = (screen_width / 2) - (character_width / 2)
+character_y_pos = screen_height - character_height
+
 # event loop
 running = True # keep game running
 while running:
@@ -20,8 +28,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # screen.fill((20, 139, 215))
     screen.blit(background, (0, 0)) # draw background
+    screen.blit(character, (character_x_pos, character_y_pos)) # draw character
 
     pygame.display.update() # keep drawing bg
 
